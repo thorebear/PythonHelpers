@@ -41,22 +41,11 @@ def quicksort(_list):
     """
     if len(_list) <= 1:
         return _list
-    r = random.randint(0, len(_list) - 1)
-    pivot = _list.pop(r)
-    a = []
-    b = []
-    mid = [pivot]
-    for v in _list:
-        if v < pivot:
-            a.append(v)
-        else:
-            if v > pivot:
-                b.append(v)
-            else: #v == pivot
-                mid.append(pivot)
-    a = quicksort(a)
-    b = quicksort(b)
-    return a + mid + b
+    pivot = _list[random.randint(0, len(_list) - 1)]
+    a = [x for x in _list if x < pivot]
+    b = [x for x in _list if x > pivot]
+    mid = [x for x in _list if x == pivot]
+    return quicksort(a) + mid + quicksort(b)
 
 
 def mergesort(_list):
@@ -80,7 +69,6 @@ def mergesort(_list):
             b.pop(0)
     return merged + a + b
 
-    
 def randlist(size, _min, _max):
     """
     Generate random list with 'size' random ints between _min and _max
