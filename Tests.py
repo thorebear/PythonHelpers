@@ -32,6 +32,15 @@ class ScanIncTest(unittest.TestCase):
     def test_3(self):
         self.assertEqual(H.scan_inc(op.mul, 1, []), [])
 
+class QuicksortTest(unittest.TestCase):
+    def test_1(self):
+        self.assertEqual(H.quicksort([]),[])
+    def test_2(self):
+        self.assertEqual(H.quicksort([1,1,1,1]),[1,1,1,1])
+    def test_3(self):
+        self.assertEqual(H.quicksort([4,2,7,9,11,1]),[1,2,4,7,9,11])
+            
+            
 
 if __name__ == '__main__':
     unittest.main()
