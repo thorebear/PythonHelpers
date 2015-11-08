@@ -39,7 +39,19 @@ class QuicksortTest(unittest.TestCase):
         self.assertEqual(H.quicksort([1,1,1,1]),[1,1,1,1])
     def test_3(self):
         self.assertEqual(H.quicksort([4,2,7,9,11,1]),[1,2,4,7,9,11])
-            
+
+class MergesortTest(unittest.TestCase):
+    def test_1(self):
+        self.assertEqual(H.mergesort([]),[])
+    def test_2(self):
+        self.assertEqual(H.mergesort([1,1,1,1]),[1,1,1,1])
+    def test_3(self):
+        self.assertEqual(H.mergesort([4,2,7,9,11,1]),[1,2,4,7,9,11])
+
+class RandomQuickMergeTest(unittest.TestCase):
+    def test_1(self):
+        _list = H.randlist(1000, -50, 50)
+        self.assertEqual(H.mergesort(_list), H.quicksort(_list))
             
 
 if __name__ == '__main__':
