@@ -47,7 +47,6 @@ def quicksort(_list):
     mid = [x for x in _list if x == pivot]
     return quicksort(a) + mid + quicksort(b)
 
-
 def mergesort(_list):
     """
     Merge sort on _list
@@ -75,4 +74,25 @@ def randlist(size, _min, _max):
     """
     _list = [0] * size
     return [random.randint(_min, _max) for _ in _list]
-    
+
+def select_menu_item(items):
+    """
+    Create a selectable menu for the items listed in 'items'
+    """
+    print "Select one of the following:"
+    _count = 1
+    for i in items:
+        print "[" + str(_count) + "]" + " " + str(i)
+        _count = _count + 1
+
+    _in = raw_input("Input 1 to " + str(len(items)) + "  ")
+    try:
+        _in_int = int(_in)
+        if 1 <= _in_int <= len(items):
+            return items[_in_int-1]
+        else:
+            select_menu_item(items)
+    except ValueError:
+        print "Please input integer"
+        select_menu_item(items)
+        
